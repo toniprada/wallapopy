@@ -17,5 +17,3 @@ class WallapopClient:
     def _make_request(self, request):
         if request['method'] == 'GET':
             return requests.get(request['url']).json()
-
-

@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-import urllib
+from future.standard_library import install_aliases
+install_aliases()
+
+from urllib.parse import urlencode
 
 class WallapopRequestBuilder:
 
@@ -46,6 +49,5 @@ class WallapopRequestBuilder:
         return self._build_request('GET', endpoint, params)
 
     def _build_request(self, method, endpoint, params):
-        url = '%s/%s?%s' % (self.BASE_URL, endpoint, urllib.urlencode(params))
+        url = '%s/%s?%s' % (self.BASE_URL, endpoint, urlencode(params))
         return {'method': method, 'url': url}
-
