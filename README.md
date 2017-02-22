@@ -14,6 +14,8 @@ Already implemented:
     * Reviews received by others.
 * Items search.
 
+Other endpoints will be implemented as needed or requested.
+
 ## Installing
 
 You can install wallapopy using:
