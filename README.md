@@ -1,39 +1,40 @@
 # wallapopy
 
-A Wallapop client for Python.
+This library provides a pure Python client for Wallapop. It works with Python versions from 2.6+ and Python 3.
 
-_Wallapop_ is a marketplace for second hand articles with a high user penetration in Spain. It follows the _two-sided_ reputation schema, where both seller and buyer receive a rating as well as an optional comment. User profiles consist of profile data, sold products with their associated feedbacks and products on sale.
+## API
 
-This library was created to enable research projects related to reputation in the Sharing Economy (results not published yet).
-
-## Data
-
-Endpoints implemented:
+Already implemented:
 
 * User:
-    * Profile (including user metadata).
-    * Published and sold items.
-    * Sent and received reviews.
+    * Profile.
+    * Sold items.
+    * Unsold published items.
+    * Reviews sent to others.
+    * Reviews received by others.
+* Items search.
 
-* Search: by location and with optional parameters as query term or sorting strategy.
+## Installing
 
+You can install wallapopy using:
 
-## Usage
+```
+$ pip install wallapopy
+```
 
-Given that this library was intended to be used together with Scrapy, not only a client is included but also a _request builder_ to easily create _Scrapy Requests_ (or whatever it is needed).
+## Using
+
+The motivation for this project was to enable research about reputation in the Sharing Ecoomy. That's the reason it includes a _request builder_ which can be used together with _Scrapy_. Nevertheless it also includes a _client_ that directly returns the data.
 
 ### Request Builder
 
-It returns a url that can be queried to access the data together with the method to do it.
+It returns a url that can be queried to access the data together with the information needed to do it.
 
 ```python
-from request_builder import WallapopRequestBuilder
-
-request_builder = WallapopRequestBuilder()
-request_builder.user(40000000)
-```
-```
-> {'method': 'GET', 'url': 'http://pro2.wallapop.com/shnm-portlet/api/v1/user.json/40000000?'}
+>>> from request_builder import WallapopRequestBuilder
+>>> request_builder = WallapopRequestBuilder()
+>>> request_builder.user(40000000)
+{'method': 'GET', 'url': 'http://pro2.wallapop.com/shnm-portlet/api/v1/user.json/40000000?'}
 ```
 
 ### Client
@@ -41,14 +42,8 @@ request_builder.user(40000000)
 Leveraging the _request builder_, a client that directly downloads the data.
 
 ```python
-from client import WallapopClient
-
-client = WallapopClient()
-client.user(40000000)
+>>> from client import WallapopClient
+>>> client = WallapopClient()
+>>> client.user(40000000)
+{u'gender': u'M', u'image': {u'averageHexColor': u'565b51', u'pictureId': 148033140...
 ```
-```
-> {u'gender': u'M', u'image': {u'averageHexColor': u'565b51', u'pictureId': 148033140, u'originalHeight': 416, u'mediumURL': u'http://cdn.wallapop.com/shnm-portlet/images?pictu...
-```
-
-
-
