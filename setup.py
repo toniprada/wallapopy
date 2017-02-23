@@ -14,8 +14,8 @@ except ImportError:
 
 setup(
     name='wallapopy',
-    version='1.0.2',
-    description='A Wallapop client for Python.',
+    version='1.0.3',
+    description='A Python client for Wallapop',
     long_description=long_description,
     url='https://github.com/toniprada/wallapopy',
     author='Toni Prada',
