@@ -26,7 +26,7 @@ $ pip install wallapopy
 
 ## Using
 
-The motivation for this project was to enable research about reputation in the Sharing Economy. Because I needed lots of data, it includes not only a _client_ but also a _request builder_ which can be used together with [Scrapy](https://github.com/scrapy/scrapy).
+The motivation for this project was to enable research about reputation in the Sharing Economy. Because I needed lots of data, it includes not only a _client_ but also a _request builder_ which can be used together with Scrapy [(example)](https://github.com/toniprada/wallapop-users-scraper).
 
 ### Client
 
