@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import requests
-from request_builder import WallapopRequestBuilder
+
+from wallapopy.src.request_builder import WallapopRequestBuilder
+
 
 class WallapopClient:
 
